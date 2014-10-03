@@ -114,20 +114,26 @@ bool load_files()
     paddleSprite = load_image( "assets/Paddle.bmp" );
     ballSprite = load_image("assets/ball.bmp");
     font = TTF_OpenFont("assets/gothic.ttf", 20);
+    tileSheet = load_image("assets/spritesheet.bmp");
 
     if( paddleSprite == NULL )
     {
-        return false;
+        return 1;
     }
 
     if(ballSprite == NULL)
     {
-        return false;
+        return 2;
     }
 
     if(font == NULL)
     {
-        return false;
+        return 3;
+    }
+
+    if(tileSheet == NULL)
+    {
+        return 4;
     }
 
     //If everything loaded fine
@@ -144,9 +150,53 @@ void clean_up()
     SDL_FreeSurface(showBallvelocityX);
     SDL_FreeSurface(showPlayerVelocity);
 
-
-
-
     //Quit SDL
     SDL_Quit();
 }
+
+void clip_tiles()
+{
+    clips[ TILE_BLUE ].x = 0;
+    clips[ TILE_BLUE ].y = 0;
+    clips[ TILE_BLUE ].w = TILE_WIDTH;
+    clips[ TILE_BLUE ].h = TILE_HEIGHT;
+
+    clips[ TILE_GREEN ].x = 0;
+    clips[ TILE_GREEN ].y = 51;
+    clips[ TILE_GREEN ].w = TILE_WIDTH;
+    clips[ TILE_GREEN ].h = TILE_HEIGHT;
+
+    clips[ TILE_RED ].x = 0;
+    clips[ TILE_RED ].y = 102;
+    clips[ TILE_RED ].w = TILE_WIDTH;
+    clips[ TILE_RED ].h = TILE_HEIGHT;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

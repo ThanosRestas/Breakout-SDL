@@ -2,6 +2,7 @@
 #include "globals.h"
 #include "player.h"
 #include "timer.h"
+#include "tile.h"
 
 
 SDL_Event event;
@@ -13,6 +14,57 @@ SDL_Surface *showTicks;
 SDL_Surface *showBallvelocityY;
 SDL_Surface *showBallvelocityX;
 SDL_Surface *showPlayerVelocity;
+SDL_Surface *tileSheet ;
+
+
+SDL_Rect clips[ TILE_SPRITES ];
+
+bool set_tiles(Tile *tiles[])
+{
+    int unsigned x = 100;
+    int unsigned y = 100;
+
+    std::ifstream map("assets/tilemap.map");
+
+    if( map == NULL )
+    {
+        return false;
+    }
+
+    for(int t = 0 ; t < TOTAL_TILES; t++)
+    {
+        int tileType = -1;
+
+        map >> tileType;
+
+        if(map.fail() == true)
+        {
+            map.close();
+            return false;
+        }
+
+        if((tileType >= 0) && (tileType < TILE_SPRITES))
+        {
+            tiles[t] = new Tile(x,y,tileType);
+        }
+        else
+        {
+            map.close();
+            return false;
+        }
+
+        x+= TILE_WIDTH;
+        if(x>= SCREEN_WIDTH)
+        {
+            x = 0;
+            y+=TILE_HEIGHT;
+        }
+
+    }
+
+    map.close();
+    return true;
+}
 
 
 int main( int argc, char* args[] )
@@ -26,15 +78,24 @@ int main( int argc, char* args[] )
     char ballVelY[5];
     bool debug = false;
 
+    Tile *tiles[TOTAL_TILES];
+
     if(init() == false)
     {
-        return 1;
+        return 5;
     }
 
     if(load_files() == false)
     {
-        return 2;
+        return 6;
     }
+
+    clip_tiles();
+
+   if( set_tiles( tiles ) == false )
+   {
+       return 1;
+   }
 
     startTicks = SDL_GetTicks();
 
@@ -84,6 +145,12 @@ int main( int argc, char* args[] )
         bullet.move(control.player,deltaTicks);
 
         SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0x00, 0x00, 0x00 ) );
+
+        for( int t = 0; t < TOTAL_TILES; t++ )
+        {
+           tiles[ t ]->show();
+        }
+
         control.show();
         bullet.show();
 
