@@ -1,2 +1,8 @@
 breakout
 makefile~
+ball.cpp~
+tile.o
+timer.o
+player.o
+globals.o
+ball.o
