@@ -5,17 +5,18 @@
 class Tile
 {
     private:
-        SDL_Rect box;
+
         int type;
 
     public:
+        CustomRect box;
         Tile( int x, int y, int tileType );
 
         void show();
 
         int get_type();
 
-        SDL_Rect get_box();
+        CustomRect get_box();
 };
 
 #endif // TILE_H

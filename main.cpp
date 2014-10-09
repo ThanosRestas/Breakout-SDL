@@ -72,8 +72,8 @@ int main( int argc, char* args[] )
     bool quit = false;
     Player control(200,700);
     Ball bullet;
-    Uint32 startTicks = 0;
-    Uint32 deltaTicks = 0;
+    float startTicks = 0;
+    float deltaTicks = 0;
     char ballVelX[5];
     char ballVelY[5];
     bool debug = false;
@@ -142,9 +142,10 @@ int main( int argc, char* args[] )
 
         deltaTicks = SDL_GetTicks() - startTicks;
         control.move(deltaTicks);
-        bullet.move(control.player,deltaTicks);
+        bullet.move(control.player,tiles,deltaTicks);
 
         SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0x00, 0x00, 0x00 ) );
+
 
         for( int t = 0; t < TOTAL_TILES; t++ )
         {
@@ -167,10 +168,6 @@ int main( int argc, char* args[] )
             SDL_FreeSurface(showBallvelocityY);
             SDL_FreeSurface(showBallvelocityX);
         }
-
-
-
-
 
         startTicks = SDL_GetTicks();
         deltaTicks = 0;

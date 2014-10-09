@@ -63,7 +63,9 @@ struct CustomRect
     int w;
 };
 
-bool check_collision(CustomRect A, CustomRect B);
+//bool check_collision(CustomRect A, CustomRect B,Tile *tiles[]);
+
+
 void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL);
 bool init();
 SDL_Surface *load_image( std::string filename );

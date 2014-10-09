@@ -13,36 +13,6 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,
     SDL_BlitSurface( source, clip, destination, &offset );
 }
 
-bool check_collision(CustomRect A, CustomRect B)
-{
-    //The sides of the rectangles
-    int leftA,leftB;
-    int rightA,rightB;
-    int topA,topB;
-    int bottomA,bottomB;
-
-    //Calculate the sides of the rect A
-    leftA = A.x;
-    rightA= A.x + A.w;
-    topA = A.y ;
-    bottomA = A.y + A.h;
-
-    //Calculate the sides of the rect B
-    leftB = B.x;
-    rightB = B.x + B.w;
-    topB = B.y;
-    bottomB = B.y + B.h;
-
-     //If any of the sides from A are outside of B
-    if( bottomA <= topB ) { return false; }
-    if( topA >= bottomB ) { return false; }
-    if( rightA <= leftB ) { return false; }
-    if( leftA >= rightB ) { return false; }
-
-    //If none of the sides from A are outside B
-    return true;
-}
-
 bool init()
 {
     //Initialize all SDL subsystems
@@ -149,6 +119,8 @@ void clean_up()
     SDL_FreeSurface(showBallvelocityY);
     SDL_FreeSurface(showBallvelocityX);
     SDL_FreeSurface(showPlayerVelocity);
+
+
 
     //Quit SDL
     SDL_Quit();

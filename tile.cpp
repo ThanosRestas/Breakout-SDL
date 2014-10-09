@@ -21,7 +21,7 @@ int Tile::get_type()
     return type;
 }
 
-SDL_Rect Tile::get_box()
+CustomRect Tile::get_box()
 {
     return box;
 }
