@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS = -O0 -Wall -pedantic -w -g
-OBJECTS = ball.o timer.o player.o globals.o tile.o
+OBJECTS = ball.o player.o globals.o tile.o
 LIBS = -lSDL -lSDL_image -lSDL_ttf -lSDL_mixer 
 
 all:breakout
@@ -19,9 +19,6 @@ player.o:player.cpp player.h globals.o
 
 ball.o:ball.cpp ball.h globals.o
 	$(CC) -c ball.cpp $(CFLAGS)
-
-timer.o:timer.cpp timer.h globals.o
-	$(CC) -c timer.cpp $(CFLAGS)
 clean:
 	rm *.o breakout
 	

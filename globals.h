@@ -19,7 +19,7 @@ const unsigned int SCREEN_BPP = 32;
 //The paddle's attribues
 const unsigned int PADDLE_WIDTH = 16;
 const unsigned int PADDLE_HEIGHT = 100;
-const unsigned int SPEED = 1000;
+const unsigned int SPEED = 1300;
 
 //The ball's attributes
 const unsigned int BALL_WIDTH = 18;
@@ -28,14 +28,13 @@ const unsigned int BALL_HEIGHT = 18;
 //The tiling system's attributes
 const int TILE_WIDTH = 100;
 const int TILE_HEIGHT = 50;
-const int TOTAL_TILES = 5;
+const int TOTAL_TILES = 32;
 const int TILE_SPRITES = 3;
 
 //Tile sprite types
 const int TILE_RED = 0;
 const int TILE_GREEN = 1;
 const int TILE_BLUE = 2;
-
 
 extern SDL_Surface *screen ;
 extern SDL_Surface *paddleSprite ;
@@ -44,7 +43,7 @@ extern SDL_Surface *tileSheet ;
 
 extern SDL_Event event;
 
-extern SDL_Surface *showTicks;
+extern SDL_Surface *life;
 extern SDL_Surface *showBallvelocityY;
 extern SDL_Surface *showBallvelocityX;
 extern SDL_Surface *showPlayerVelocity;

@@ -7,6 +7,9 @@ class Tile
     private:
 
         int type;
+        int centerX;
+        int centerY;
+
 
     public:
         CustomRect box;
@@ -15,6 +18,7 @@ class Tile
         void show();
 
         int get_type();
+
 
         CustomRect get_box();
 };

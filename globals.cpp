@@ -115,7 +115,7 @@ void clean_up()
     //Free the surface
     SDL_FreeSurface(screen);
     SDL_FreeSurface(paddleSprite);
-    SDL_FreeSurface(showTicks);
+    SDL_FreeSurface(life);
     SDL_FreeSurface(showBallvelocityY);
     SDL_FreeSurface(showBallvelocityX);
     SDL_FreeSurface(showPlayerVelocity);

@@ -10,12 +10,13 @@ class Ball
         CustomRect ball;
 
     public:
-        Ball();
+        Ball(float x , float y);
         int xVelocity,yVelocity;
+        int life;
 
-        void move(CustomRect player,Tile *tiles[] , float deltaTicks);
-        bool check_collision(CustomRect A, CustomRect B );
-        bool check_brick_collision(CustomRect A,Tile *tiles[] );
+        void move(CustomRect player,Tile *tiles[] , float deltaTicks,int destroyedTile[]);
+        bool check_collision(CustomRect A, CustomRect B,int &side);
+        int check_brick_collision(CustomRect A, Tile *tiles[], int &side, int destroyedTile[]);
         void show();
 };
 

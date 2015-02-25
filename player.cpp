@@ -9,7 +9,7 @@ Player::Player(int xUser, int yUser)
        xVelocity = 0;
 }
 
-void Player::handle_input()
+void Player::handle_input()//Moving via the arrow keys
 {
     if(event.type == SDL_KEYDOWN)
     {
@@ -35,7 +35,7 @@ void Player::handle_input()
     }
 }
 
-void Player::move(Uint32 deltaTicks)
+void Player::move(Uint32 deltaTicks)//Moving according to frame rate
 {
     player.x += xVelocity *(deltaTicks/1000.f);
 
@@ -50,7 +50,7 @@ void Player::move(Uint32 deltaTicks)
     }
 }
 
-void Player::show()
+void Player::show()//Display the paddle/player on the screen
 {
     apply_surface( (int)player.x, (int)player.y, paddleSprite, screen );
 }
