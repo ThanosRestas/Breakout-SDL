@@ -5,7 +5,7 @@ The classic game of Breakout ported to modern systems using the [SDL](https://ww
 
 # Intro
 
-Main purpose of this project was to get familiar with  systems such as :
+Main purpose of this project was to get familiar with techniques such as :
 
 * Creating a level via loading and using a tilemap
 * Implementing a better collision system
