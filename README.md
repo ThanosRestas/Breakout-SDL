@@ -12,7 +12,7 @@ Main purpose of this project was to get familiar with practices such as :
 
 # Overview
 
-* The game supports one player and WASD movement of the paddle*
+* The game supports one player and WASD movement of the paddle
 
 # Building in Linux
 
