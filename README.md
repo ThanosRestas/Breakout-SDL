@@ -1,11 +1,17 @@
-This is a Breakout clone that will feature a more advanced collision detection system, a tiling system and a debug mode. 
+# Pong SDL
+The classic game of Breakout ported to modern systems using the [SDL](https://www.libsdl.org/index.php).
 
-Debug mode will feature information such as position offsets and velocities for every moving object on the screen plus frame rates for the screen itself.Its main purpose will be , apart from debuging itself, to ensure the creation of a "tight enough" and responsive gameplay via the observation of several values that will affect the flow of the game at any given time. Instructions : press F1 to enable debug mode and press 1(number key) to up the ball velocities or 2 to lower them.
+<img src="https://media3.giphy.com/media/U5OubI1BQAO3n87gMk/giphy.gif">
 
-Windows users will have to wait for binaries in the future.
+# Overview
 
-Linux users should first install the required dependencies by executing the following command :
+* The game supports one player and WASD movement of the paddle*
 
-apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+# Building in Linux
 
-Have fun.
+1) Grab the dependencies using the following commands in terminal : 
+`sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev`
+2) Clone the project's repository 
+3) Open a terminal window inside the cloned folder
+4) Use the following command : `make`
+5) Run the executable : `./breakout`
