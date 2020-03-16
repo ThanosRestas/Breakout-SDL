@@ -25,7 +25,7 @@ bool set_tiles(Tile *tiles[],int level)//Creating the map from the level1 text f
 
     std::ifstream map("assets/level1.map");    
 
-    if( map == NULL )
+    if(!map)
     {
         return false;
     }
