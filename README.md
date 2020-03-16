@@ -1,7 +1,14 @@
-# Pong SDL
+# Breakout SDL
 The classic game of Breakout ported to modern systems using the [SDL](https://www.libsdl.org/index.php).
 
 <img src="https://media3.giphy.com/media/U5OubI1BQAO3n87gMk/giphy.gif">
+
+# Intro
+
+Main purpose of this project was to get familiar with  systems such as :
+
+* Creating a level via loading and using a tilemap
+* Implementing a better collision system
 
 # Overview
 
